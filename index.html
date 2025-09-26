@@ -7,50 +7,6 @@
     <link rel="stylesheet" href="styles.css"> <!-- Correct way to include CSS -->
 </head>
 <body>
-    <h1>Rate This Content</h1>
-    <form id="ratingForm">
-        <label for="rating">Your rating (1-5):</label>
-        <select id="rating" required>
-            <option value="">Select</option>
-            <option value="1">1 ⭐</option>
-            <option value="2">2 ⭐⭐</option>
-            <option value="3">3 ⭐⭐⭐</option>
-            <option value="4">4 ⭐⭐⭐⭐</option>
-            <option value="5">5 ⭐⭐⭐⭐⭐</option>
-        </select>
-        <button type="submit">Submit</button>
-    </form>
-    <div id="averageRating"></div>
-    <ul id="ratingsList"></ul>
-    <script>
-        const ratings = [];
-        const form = document.getElementById('ratingForm');
-        const ratingSelect = document.getElementById('rating');
-        const averageRatingDiv = document.getElementById('averageRating');
-        const ratingsList = document.getElementById('ratingsList');
-
-        function updateDisplay() {
-            if (ratings.length === 0) {
-                averageRatingDiv.textContent = "No ratings yet.";
-                ratingsList.innerHTML = "";
-                return;
-            }
-            const avg = (ratings.reduce((a, b) => a + b, 0) / ratings.length).toFixed(2);
-            averageRatingDiv.textContent = `Average Rating: ${avg} ⭐`;
-            ratingsList.innerHTML = ratings.map(r => `<li>${r} ⭐</li>`).join('');
-        }
-
-        form.addEventListener('submit', function(e) {
-            e.preventDefault();
-            const value = parseInt(ratingSelect.value, 10);
-            if (value >= 1 && value <= 5) {
-                ratings.push(value);
-                updateDisplay();
-                ratingSelect.value = "";
-            }
-        });
-
-        updateDisplay();
-    </script>
+   
 </body>
 </html>
